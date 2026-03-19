@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../assets/css/style.css";
+@import "../assets/css/pages.css";
+@import "../assets/css/news.css";
+@import "../assets/css/news-detail.css";
+@import "../assets/css/portfolio.css";
+@import "../assets/css/theme.css";
+@import "../assets/css/responsive.css";
+
+/* Ensure Next.js main wrapper doesn't break absolute backgrounds */
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}

@@ -1,0 +1,1145 @@
+/* =============================================
+   PORTFOLIO PAGE — /en
+   ============================================= */
+
+/* ---- Page Wrapper ---- */
+.pf-page {
+    padding-top: 7rem;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   HERO SECTION
+   ============================================= */
+.pf-hero {
+    position: relative;
+    padding: clamp(4rem, 8vw, 8rem) 0 clamp(3rem, 6vw, 6rem);
+    overflow: hidden;
+}
+
+.pf-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.pf-hero-glow {
+    position: absolute;
+    top: -20%;
+    left: -10%;
+    width: 60%;
+    height: 130%;
+    background: radial-gradient(ellipse 55% 55% at 30% 40%, rgba(45, 189, 90, 0.08) 0%, transparent 70%);
+}
+
+.pf-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 20%, transparent 100%);
+}
+
+.pf-hero-layout {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(2rem, 5vw, 6rem);
+    align-items: center;
+}
+
+/* Left — Text Content */
+
+.pf-available-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.25);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 1.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pf-available-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--green);
+    animation: pulse 2s infinite;
+}
+
+.pf-hero-name {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+}
+
+.pf-hero-name span {
+    color: var(--green);
+}
+
+.pf-hero-title {
+    font-size: clamp(1rem, 1.4vw, 1.15rem);
+    color: var(--muted);
+    font-weight: 500;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+}
+
+.pf-hero-bio {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+}
+
+.pf-hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.pf-social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pf-social-link {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--dark-4);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 1rem;
+    transition: all 0.3s var(--ease);
+}
+
+.pf-social-link:hover {
+    background: var(--green);
+    border-color: var(--green);
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45, 189, 90, 0.35);
+}
+
+.pf-hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.pf-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.pf-stat-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+}
+
+.pf-stat-num span {
+    color: var(--green);
+}
+
+.pf-stat-lbl {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.pf-stat-divider {
+    width: 1px;
+    height: 36px;
+    background: var(--border);
+}
+
+/* Right — Avatar */
+.pf-hero-visual {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.pf-avatar-wrapper {
+    position: relative;
+    width: clamp(240px, 22vw, 320px);
+    height: clamp(240px, 22vw, 320px);
+}
+
+.pf-avatar-ring {
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    background: conic-gradient(
+        var(--green) 0deg,
+        var(--green-light) 90deg,
+        transparent 180deg,
+        var(--green-dark) 270deg,
+        var(--green) 360deg
+    );
+    animation: spin-ring 8s linear infinite;
+    z-index: 0;
+}
+
+.pf-avatar-ring-inner {
+    position: absolute;
+    inset: 3px;
+    border-radius: 50%;
+    background: var(--dark);
+    z-index: 1;
+}
+
+@keyframes spin-ring {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.pf-avatar-img {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    z-index: 2;
+    object-fit: cover;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+}
+
+.pf-avatar-fallback {
+    position: absolute;
+    inset: 6px;
+    border-radius: 50%;
+    z-index: 2;
+    background: linear-gradient(135deg, var(--dark-4), var(--dark-5));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--green);
+    letter-spacing: -0.02em;
+}
+
+.pf-avatar-glow {
+    position: absolute;
+    inset: -30px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(45, 189, 90, 0.18) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.pf-cert-badge {
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    background: var(--dark-3);
+    border: 1px solid rgba(45, 189, 90, 0.3);
+    border-radius: var(--radius-lg);
+    padding: 0.65rem 1rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--green);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10;
+    box-shadow: var(--shadow-elevated);
+    white-space: nowrap;
+    backdrop-filter: blur(12px);
+}
+
+/* =============================================
+   ABOUT / SERVICES SECTION
+   ============================================= */
+.pf-about {
+    background: var(--dark-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.pf-about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.pf-about-text {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.85;
+}
+
+.pf-about-text p + p {
+    margin-top: 1.25rem;
+}
+
+.pf-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.pf-service-card {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    transition: all 0.35s var(--ease);
+}
+
+.pf-service-card:hover {
+    border-color: rgba(45, 189, 90, 0.3);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card);
+}
+
+.pf-service-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 1rem;
+    margin-bottom: 0.85rem;
+    transition: all 0.3s;
+}
+
+.pf-service-card:hover .pf-service-icon {
+    background: var(--green);
+    color: var(--dark);
+}
+
+.pf-service-name {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+}
+
+.pf-service-desc {
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* =============================================
+   SKILLS SECTION
+   ============================================= */
+.pf-skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.pf-skill-category {
+    margin-bottom: 2.5rem;
+}
+
+.pf-skill-category-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pf-skill-category-title::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--green);
+    border-radius: 99px;
+    display: inline-block;
+}
+
+.pf-skill-item {
+    margin-bottom: 1rem;
+}
+
+.pf-skill-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.pf-skill-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.pf-skill-pct {
+    font-size: 0.75rem;
+    color: var(--green);
+    font-weight: 600;
+}
+
+.pf-skill-bar-track {
+    height: 4px;
+    background: var(--dark-5);
+    border-radius: 99px;
+    overflow: hidden;
+}
+
+.pf-skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green-dark), var(--green-light));
+    border-radius: 99px;
+    transform-origin: left;
+    animation: grow-bar 1.2s var(--ease) forwards;
+    transform: scaleX(0);
+}
+
+@keyframes grow-bar {
+    to { transform: scaleX(1); }
+}
+
+/* Tech pill tags */
+.pf-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.pf-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: var(--dark-4);
+    border: 1px solid var(--border);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: all 0.25s var(--ease);
+}
+
+.pf-pill:hover {
+    background: var(--green-glow);
+    border-color: rgba(45, 189, 90, 0.3);
+    color: var(--green);
+}
+
+.pf-pill i {
+    color: var(--green);
+    font-size: 0.72rem;
+}
+
+/* =============================================
+   CERTIFICATIONS
+   ============================================= */
+.pf-certs {
+    background: var(--dark-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.pf-certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.pf-cert-card {
+    background: rgba(23, 27, 24, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 1.5rem;
+    transition: all 0.4s var(--ease);
+    position: relative;
+    overflow: hidden;
+}
+
+.pf-cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--green-dark), var(--green-light));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.pf-cert-card:hover {
+    border-color: rgba(45, 189, 90, 0.25);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elevated), 0 0 40px rgba(45, 189, 90, 0.08);
+}
+
+.pf-cert-card:hover::before {
+    opacity: 1;
+}
+
+.pf-cert-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+}
+
+.pf-cert-name {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+}
+
+.pf-cert-org {
+    font-size: 0.8rem;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.pf-cert-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+}
+
+/* =============================================
+   EDUCATION
+   ============================================= */
+.pf-edu-card {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 780px;
+    margin: 0 auto;
+    transition: all 0.35s var(--ease);
+}
+
+.pf-edu-card:hover {
+    border-color: rgba(45, 189, 90, 0.25);
+    box-shadow: var(--shadow-card);
+}
+
+.pf-edu-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-lg);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.pf-edu-degree {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.3rem;
+}
+
+.pf-edu-field {
+    font-size: 0.95rem;
+    color: var(--green);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.pf-edu-university {
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* =============================================
+   PROJECTS
+   ============================================= */
+.pf-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.pf-project-card {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.4s var(--ease);
+    display: flex;
+    flex-direction: column;
+}
+
+.pf-project-card:hover {
+    border-color: rgba(45, 189, 90, 0.3);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-elevated);
+}
+
+.pf-project-thumb {
+    height: 180px;
+    background: linear-gradient(135deg, var(--dark-4) 0%, var(--dark-5) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5rem;
+    color: var(--green);
+    position: relative;
+    overflow: hidden;
+}
+
+.pf-project-thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(45, 189, 90, 0.05) 0%, transparent 60%);
+}
+
+.pf-project-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pf-project-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-full);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.2);
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--green);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.85rem;
+}
+
+.pf-project-name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.6rem;
+}
+
+.pf-project-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+    margin-bottom: 1.25rem;
+}
+
+.pf-project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--green);
+    transition: gap 0.25s;
+    margin-top: auto;
+}
+
+.pf-project-link:hover {
+    gap: 0.7rem;
+}
+
+/* =============================================
+   CONTACT SECTION
+   ============================================= */
+.pf-contact {
+    background: var(--dark-2);
+    border-top: 1px solid var(--border);
+}
+
+.pf-contact-inner {
+    text-align: center;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.pf-contact-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.pf-contact-title span {
+    color: var(--green);
+}
+
+.pf-contact-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+}
+
+.pf-contact-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.pf-contact-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.pf-contact-link-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--radius-full);
+    background: var(--dark-4);
+    border: 1px solid var(--border);
+    font-size: 0.82rem;
+    color: var(--muted);
+    transition: all 0.3s var(--ease);
+}
+
+.pf-contact-link-item:hover {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.pf-contact-link-item i {
+    color: var(--green);
+    font-size: 0.85rem;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 900px) {
+    .pf-hero-layout {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .pf-hero-content {
+        order: 1;
+    }
+
+    .pf-hero-visual {
+        order: 0;
+        margin: 0 auto;
+    }
+
+    .pf-available-badge {
+        margin-inline: auto;
+    }
+
+    .pf-hero-bio {
+        margin-inline: auto;
+    }
+
+    .pf-hero-actions {
+        justify-content: center;
+    }
+
+    .pf-hero-stats {
+        justify-content: center;
+    }
+
+    .pf-social-links {
+        justify-content: center;
+    }
+
+    .pf-about-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .pf-skills-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pf-edu-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .pf-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pf-avatar-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .pf-contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pf-contact-actions .btn {
+        justify-content: center;
+    }
+}
+
+/* =============================================
+   CONTENT PROTECTION PAGE — /content-protection
+   ============================================= */
+
+/* Hero — centred single-column layout */
+.cp-hero-layout {
+    max-width: 760px;
+    padding: 1rem 0 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Badge row */
+.cp-plugin-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.75rem;
+}
+
+.cp-wp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: rgba(0, 103, 178, 0.12);
+    border: 1px solid rgba(0, 103, 178, 0.3);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #5ba4cf;
+    letter-spacing: 0.04em;
+}
+
+.cp-wp-badge i {
+    font-size: 0.85rem;
+}
+
+.cp-version-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.25);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.06em;
+}
+
+.cp-license-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.9rem;
+    border-radius: var(--radius-full);
+    background: var(--dark-4);
+    border: 1px solid var(--border);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+}
+
+/* Features grid — 3 cols */
+.cp-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+/* How-it-works steps */
+.cp-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 700px;
+}
+
+.cp-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    transition: all 0.35s var(--ease);
+}
+
+.cp-step:hover {
+    border-color: rgba(45, 189, 90, 0.25);
+    transform: translateX(6px);
+    box-shadow: var(--shadow-card);
+}
+
+.cp-step-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--green);
+    opacity: 0.25;
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 56px;
+    transition: opacity 0.3s;
+}
+
+.cp-step:hover .cp-step-num {
+    opacity: 0.6;
+}
+
+.cp-step-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+}
+
+.cp-step-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+/* Specs layout */
+.cp-specs-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.cp-specs-table {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.cp-spec-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.9rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+}
+
+.cp-spec-row:last-child {
+    border-bottom: none;
+}
+
+.cp-spec-row:hover {
+    background: var(--dark-4);
+}
+
+.cp-spec-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.cp-spec-value {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+/* Code block */
+.cp-code-block {
+    background: var(--dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.cp-code-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.25rem;
+    background: var(--dark-3);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.cp-code-header i {
+    color: var(--green);
+}
+
+.cp-code-lang {
+    margin-left: auto;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    background: var(--green-glow);
+    border: 1px solid rgba(45, 189, 90, 0.2);
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.08em;
+}
+
+.cp-code-pre {
+    padding: 1.5rem;
+    margin: 0;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 0.8rem;
+    line-height: 1.7;
+    color: #b0c8b0;
+    white-space: pre;
+}
+
+/* FAQ */
+.cp-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 760px;
+}
+
+.cp-faq-item {
+    background: var(--dark-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    transition: all 0.3s var(--ease);
+}
+
+.cp-faq-item:hover {
+    border-color: rgba(45, 189, 90, 0.25);
+    box-shadow: var(--shadow-card);
+}
+
+.cp-faq-q {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.85rem;
+}
+
+.cp-faq-q i {
+    color: var(--green);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.cp-faq-a {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-left: 1.75rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .cp-features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cp-specs-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .cp-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cp-step {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cp-step-num {
+        font-size: 2rem;
+    }
+}

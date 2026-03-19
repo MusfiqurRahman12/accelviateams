@@ -1,0 +1,135 @@
+/* =============================================
+   ACCELVIATEAMS — RESPONSIVE CSS
+   ============================================= */
+
+/* TABLET — 1024px */
+@media (max-width: 1024px) {
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+
+    .about-teaser-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-visual-wrap {
+        display: none;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-featured {
+        grid-row: auto;
+    }
+
+    .project-featured .project-img {
+        aspect-ratio: 16/9;
+    }
+}
+
+/* MOBILE — 768px */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 110;
+        position: relative;
+    }
+
+    /* Prevent nav-inner from clipping the toggle button */
+    .nav-inner {
+        overflow: visible;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 10vw, 3.5rem);
+    }
+
+    .hero-stats {
+        gap: 1.25rem;
+        flex-wrap: wrap;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .cta-email {
+        font-size: 1rem !important;
+    }
+
+    .cta-title {
+        word-break: break-word;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions .btn {
+        justify-content: center;
+    }
+
+    /* About page — Our Story & Our Mission stack vertically on mobile */
+    .about-body-grid {
+        grid-template-columns: 1fr !important;
+        gap: 3rem !important;
+    }
+}
+
+/* SMALL MOBILE — 480px */
+@media (max-width: 480px) {
+    .hero {
+        padding-top: 5.5rem;
+    }
+
+    .about-tags {
+        gap: 0.4rem;
+    }
+
+    .tag {
+        font-size: 0.72rem;
+    }
+}
