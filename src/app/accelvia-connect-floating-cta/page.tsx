@@ -4,39 +4,69 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'Accelvia Connect - Floating CTA | WordPress Plugin',
     description:
-        'Add multiple floating WhatsApp and custom CTA buttons with advanced animations and display controls to your WordPress website. By Md Musfiqur Rahman.',
+        'Add floating CTAs with Lottie animations, business hour rules, smart scroll triggers, dynamic transparency, and automatic GA4 tracking.',
 };
 
 const features = [
     {
         icon: 'fa-solid fa-layer-group',
         title: 'Multiple Stacked Buttons',
-        desc: 'Create and stack multiple floating buttons tailored to different needs without cluttering your interface.',
+        desc: 'Create and manage multiple buttons that stack vertically with drag & drop reordering to control their sequence on the front end.',
     },
     {
         icon: 'fa-brands fa-whatsapp',
-        title: 'WhatsApp Integration',
-        desc: 'Seamlessly integrate WhatsApp chat to allow your customers to reach you instantly.',
-    },
-    {
-        icon: 'fa-solid fa-phone',
-        title: 'Custom CTA & Email',
-        desc: 'Add custom call and email buttons to boost conversions and connect directly with users.',
+        title: '6 Button Types',
+        desc: 'WhatsApp, Phone/Call, Email, Telegram, Discord, and Custom Link — each with automatic formatting and pre-filled message support.',
     },
     {
         icon: 'fa-solid fa-wand-magic-sparkles',
-        title: 'Advanced Animations',
-        desc: 'Engage visitors with advanced CSS animations designed to attract attention gracefully.',
+        title: 'Lottie Animations',
+        desc: 'Integrate with LottieFiles — paste a .lottie or .json URL to replace static icons with high-quality, lightweight animations.',
     },
     {
-        icon: 'fa-solid fa-arrows-up-down-left-right',
-        title: 'Position & Spacing Controls',
-        desc: 'Easily control spacing and positioning to perfectly match your website\'s design.',
+        icon: 'fa-solid fa-bell',
+        title: 'Badges & Greeting Bubbles',
+        desc: 'Add notification badges ("1" or custom text) and persistent greeting bubbles like "Chat with us!" to boost engagement.',
+    },
+    {
+        icon: 'fa-solid fa-clock',
+        title: 'Business Hours',
+        desc: 'Limit button visibility to specific days of the week and custom time ranges, synced with your WordPress timezone.',
+    },
+    {
+        icon: 'fa-solid fa-bullseye',
+        title: 'Smart Display Triggers',
+        desc: 'Show buttons immediately, after a time delay, or after the user scrolls a specific percentage down the page.',
+    },
+    {
+        icon: 'fa-solid fa-filter',
+        title: 'Page-Specific Targeting',
+        desc: 'Show everywhere, homepage only, or filter by specific Page IDs with include/exclude rules for precise targeting.',
     },
     {
         icon: 'fa-solid fa-mobile-screen',
-        title: 'Responsive & Lightweight',
-        desc: 'Fully responsive with desktop/mobile visibility options, thoroughly optimized for performance.',
+        title: 'Device Visibility',
+        desc: 'Toggle visibility for individual buttons specifically for Mobile or Desktop to optimize the experience per device.',
+    },
+    {
+        icon: 'fa-solid fa-arrows-up-down-left-right',
+        title: 'Positioning & Layout',
+        desc: 'Left or right alignment, top/middle/bottom vertical pinning, and pixel-perfect horizontal and vertical offset controls.',
+    },
+    {
+        icon: 'fa-solid fa-chart-simple',
+        title: 'GA4 & Meta Pixel Tracking',
+        desc: 'Built-in 1-click toggle for Google Analytics 4 and Meta (Facebook) Pixel click tracking — no manual coding required.',
+    },
+    {
+        icon: 'fa-solid fa-wand-sparkles',
+        title: 'Hover Animations',
+        desc: 'Choose from Bounce, Pulse, Shake, Spin, or None — plus custom icon uploads (PNG/SVG) and global icon sizing (30–120px).',
+    },
+    {
+        icon: 'fa-solid fa-code',
+        title: 'Developer Features',
+        desc: 'Built-in CSS editor, individual CSS classes per button, lightweight performance-optimized code, and full translation readiness.',
     },
 ];
 
@@ -52,15 +82,27 @@ const specs = [
 const faqs = [
     {
         q: 'Does this plugin slow down my website?',
-        a: 'No. The plugin is lightweight and only loads minimal CSS and JavaScript.',
+        a: 'No. The plugin is lightweight and only loads minimal CSS and JavaScript. The DotLottie player is conditionally loaded only when Lottie animations are used.',
     },
     {
         q: 'Can I add multiple buttons?',
-        a: 'Yes. You can create and stack multiple floating buttons.',
+        a: 'Yes. You can create and stack multiple floating buttons with drag & drop reordering to control their display order.',
     },
     {
         q: 'Is this plugin mobile friendly?',
-        a: 'Yes. The buttons are fully responsive with mobile and desktop visibility controls.',
+        a: 'Yes. The buttons are fully responsive with per-button device visibility controls for Mobile and Desktop.',
+    },
+    {
+        q: 'What button types are supported?',
+        a: 'WhatsApp (with pre-filled messages), Phone/Call, Email, Telegram, Discord, and Custom Link with any external or internal URL.',
+    },
+    {
+        q: 'Can I show buttons only during business hours?',
+        a: 'Yes. The Business Hours feature lets you limit visibility to specific days and time ranges, synced with your WordPress timezone.',
+    },
+    {
+        q: 'Does it track button clicks?',
+        a: 'Yes. Built-in 1-click integration for Google Analytics 4 and Meta (Facebook) Pixel. The plugin detects tracking scripts and sends events automatically.',
     },
 ];
 
@@ -93,7 +135,9 @@ export default function AccelviaConnectFloatingCTAPage() {
                         </h1>
 
                         <p className="pf-hero-bio" style={{ maxWidth: 600, marginBottom: '2.5rem' }}>
-                            Add multiple floating WhatsApp and custom CTA buttons to your WordPress website. Features advanced animations, position controls, and performance-optimized code perfect for any website.
+                            Add floating CTAs with Lottie animations, business hour rules, smart scroll
+                            triggers, dynamic transparency, and automatic GA4 tracking. Perfect for
+                            businesses, agencies, freelancers, and ecommerce websites.
                         </p>
 
                         <div className="pf-hero-actions">
@@ -120,8 +164,8 @@ export default function AccelviaConnectFloatingCTAPage() {
                         {/* Stats row */}
                         <div className="pf-hero-stats">
                             <div className="pf-stat">
-                                <span className="pf-stat-num">∞</span>
-                                <span className="pf-stat-lbl">Buttons</span>
+                                <span className="pf-stat-num">6<span>+</span></span>
+                                <span className="pf-stat-lbl">Button Types</span>
                             </div>
                             <div className="pf-stat-divider" />
                             <div className="pf-stat">
@@ -177,7 +221,7 @@ export default function AccelviaConnectFloatingCTAPage() {
                         {[
                             { n: '01', title: 'Install Plugin', desc: 'Upload the plugin files to your WordPress directory or install directly via the plugins screen.' },
                             { n: '02', title: 'Activate', desc: "Activate Accelvia Connect through the 'Plugins' screen in your WordPress dashboard." },
-                            { n: '03', title: 'Configure Options', desc: 'Navigate to Settings -> Accelvia Connect to easily design and configure your floating buttons.' },
+                            { n: '03', title: 'Configure Options', desc: 'Navigate to Settings → Accelvia Connect to design your floating buttons, set business hours, display triggers, and enable GA4/Meta tracking.' },
                         ].map((step) => (
                             <div className="cp-step" key={step.n}>
                                 <div className="cp-step-num">{step.n}</div>
@@ -221,8 +265,9 @@ export default function AccelviaConnectFloatingCTAPage() {
                             <pre className="cp-code-pre"><code>{`/**
  * Plugin Name: Accelvia Connect - Floating CTA
  * Plugin URI:  https://accelviateams.com/accelvia-connect-floating-cta
- * Description: Add multiple floating WhatsApp and custom CTA buttons
- *              with advanced animations and display controls.
+ * Description: Add floating CTAs with Lottie animations,
+ *              business hour rules, smart scroll triggers,
+ *              dynamic transparency, and automatic GA4 tracking.
  * Version:     1.0.0
  * Requires at least: 6.0
  * Tested up to: 6.9
