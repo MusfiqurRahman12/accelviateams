@@ -98,7 +98,7 @@ export default function AccelviaConnectFloatingCTAPage() {
 
                         <div className="pf-hero-actions">
                             <a
-                                href="https://accelviateams.com/accelvia-connect-floating-cta"
+                                href="https://wordpress.org/plugins/accelvia-connect-floating-cta/"
                                 className="btn btn-primary btn-lg"
                                 id="cp-download-btn"
                             >
@@ -280,7 +280,7 @@ export default function AccelviaConnectFloatingCTAPage() {
                         </p>
                         <div className="pf-contact-actions">
                             <a
-                                href="https://accelviateams.com/accelvia-connect-floating-cta"
+                                href="https://wordpress.org/plugins/accelvia-connect-floating-cta/"
                                 className="btn btn-primary btn-lg"
                                 id="cp-cta-download-btn"
                             >
