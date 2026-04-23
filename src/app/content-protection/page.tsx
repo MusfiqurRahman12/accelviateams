@@ -105,7 +105,7 @@ export default function ContentProtectionPage() {
 
                         <div className="pf-hero-actions">
                             <a
-                                href="https://accelviateams.com/content-protection"
+                                href="https://wordpress.org/plugins/accelvia-content-protection/"
                                 className="btn btn-primary btn-lg"
                                 id="cp-download-btn"
                             >
@@ -288,7 +288,7 @@ export default function ContentProtectionPage() {
                         </p>
                         <div className="pf-contact-actions">
                             <a
-                                href="https://accelviateams.com/content-protection"
+                                href="https://wordpress.org/plugins/accelvia-content-protection/"
                                 className="btn btn-primary btn-lg"
                                 id="cp-cta-download-btn"
                             >
