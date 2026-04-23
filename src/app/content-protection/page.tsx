@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'Accelvia – Content Protection | WordPress Plugin',
     description:
-        'Lightweight frontend content protection WordPress plugin. Zero-dependency deterrent to disable right-click, keyboard shortcuts, text selection, image drag, and copy. By Md Musfiqur Rahman.',
+        'Advanced multi-layered content protection with DevTools detection, screenshot prevention, encrypted content delivery, download-proof watermarking, and cross-platform security — all zero-dependency.',
 };
 
 const features = [
@@ -16,7 +16,7 @@ const features = [
     {
         icon: 'fa-keyboard',
         title: 'Block Keyboard Shortcuts',
-        desc: 'Intercepts Ctrl+U (view source), Ctrl+S (save), Ctrl+A (select all), F12, and DevTools shortcuts to deter casual scraping.',
+        desc: 'Intercepts F12, Ctrl+Shift+I/J, Ctrl+U, Ctrl+S, and Ctrl+P to deter casual scraping and source viewing.',
     },
     {
         icon: 'fa-i-cursor',
@@ -34,37 +34,84 @@ const features = [
         desc: 'Intercepts the clipboard copy event so text cannot be copied even if selection is achieved via alternative methods.',
     },
     {
+        icon: 'fa-bug-slash',
+        title: 'DevTools Detection',
+        desc: '3-layer detection engine using window size delta, console getter trap, and debugger timing — catches DevTools opened from any method.',
+    },
+    {
+        icon: 'fa-lock',
+        title: 'Encrypted Content',
+        desc: 'Base64 body encoding makes view-source: show gibberish. SEO-safe with automatic bot whitelisting for Google, Bing, social media crawlers, and more.',
+    },
+    {
+        icon: 'fa-camera-slash',
+        title: 'Screenshot Protection',
+        desc: 'Blocks screenshot shortcuts on Windows, macOS, and Linux. Auto-blurs on tab switch, intercepts Screen Capture API, and clears clipboard periodically.',
+    },
+    {
+        icon: 'fa-droplet',
+        title: 'Canvas-Baked Watermarks',
+        desc: 'Burns watermarks into image pixels via HTML5 Canvas. Replaces img.src with blob: URLs so copied/saved images are always watermarked.',
+    },
+    {
         icon: 'fa-feather',
         title: 'Zero Dependencies',
-        desc: 'Pure vanilla JavaScript — no jQuery, no npm, no bloat. A single lightweight script that loads fast and stays out of your way.',
+        desc: 'Pure vanilla JavaScript — no jQuery, no npm, no bloat. DevTools polling uses less than 0.04% CPU. Server-side encoding adds only 2-4ms.',
+    },
+    {
+        icon: 'fa-shield-halved',
+        title: 'Head Guard & JS Guard',
+        desc: 'Protection activates instantly in the <head> before body loads. When JavaScript is disabled, all content is hidden with a friendly message.',
+    },
+    {
+        icon: 'fa-sliders',
+        title: 'Granular Control',
+        desc: 'Exclude specific post types, page/post IDs, or bypass protection entirely for logged-in administrators. Custom notification messages.',
     },
 ];
 
 const specs = [
-    { label: 'Version', value: '1.0.0' },
+    { label: 'Version', value: '1.2.0' },
     { label: 'Requires WordPress', value: '6.0+' },
+    { label: 'Tested up to', value: '6.9' },
     { label: 'Requires PHP', value: '7.4+' },
-    { label: 'License', value: 'GPL-2.0-or-later' },
+    { label: 'License', value: 'GPLv2 or later' },
     { label: 'Text Domain', value: 'accelvia-content-protection' },
     { label: 'Author', value: 'Md Musfiqur Rahman' },
 ];
 
 const faqs = [
     {
-        q: 'Does this plugin affect SEO?',
-        a: 'No. The protection is purely frontend JavaScript. Search engine crawlers are not affected — they index your content normally.',
+        q: 'Does this plugin completely prevent content theft?',
+        a: 'No tool can 100% prevent content theft (e.g. phone cameras or external capture hardware). This plugin acts as a very strong, multi-layered deterrent against casual copying, right-clicking, screenshot tools, DevTools inspection, and source code viewing.',
+    },
+    {
+        q: 'Will this slow down my website?',
+        a: 'No. The plugin uses pure Vanilla JavaScript. DevTools detection uses optimised 1.5s polling with cached function objects consuming less than 0.04% CPU. Server-side encoding adds only 2-4ms.',
+    },
+    {
+        q: 'Will Encrypted Content affect my SEO?',
+        a: 'No. Search engine crawlers (Google, Bing, Yandex, Baidu, DuckDuckBot) and social media bots (Facebook, Twitter, LinkedIn, WhatsApp, Pinterest, Telegram) are automatically whitelisted and receive raw HTML.',
     },
     {
         q: 'Does it work with page builders like Elementor or Divi?',
         a: 'Yes. Because the script is enqueued globally via WordPress, it works regardless of the theme or page builder you use.',
     },
     {
-        q: 'Can a determined user still bypass this?',
-        a: 'This plugin is a lightweight deterrent, not an absolute lock. It stops casual copying effectively but a technically advanced user can always work around frontend protections.',
+        q: 'Can I still edit my site and use right-click?',
+        a: 'Yes. Enable the "Skip Administrators" option in settings so all protection is disabled for logged-in administrators.',
     },
     {
-        q: 'Is there a settings page?',
-        a: 'Version 1.0.0 activates all protections globally by default. Granular per-feature controls are planned for a future release.',
+        q: 'Does the watermark modify my original images?',
+        a: 'No. Original image files in your Media Library are never touched. Watermarks are rendered at runtime via Canvas and CSS overlays.',
+    },
+    {
+        q: 'Does the screenshot protection work on all platforms?',
+        a: 'Yes. It blocks shortcuts on Windows, macOS, and Linux. It also blurs the page on tab/window focus loss and intercepts the Screen Capture API. Hardware capture methods cannot be blocked by any browser solution.',
+    },
+    {
+        q: 'What happens when JavaScript is disabled?',
+        a: 'All page content is hidden and a friendly message is displayed asking the visitor to enable JavaScript, since all protection features require it.',
     },
 ];
 
@@ -87,8 +134,8 @@ export default function ContentProtectionPage() {
                                 <i className="fa-brands fa-wordpress" />
                                 WordPress Plugin
                             </span>
-                            <span className="cp-version-badge">v1.0.0</span>
-                            <span className="cp-license-badge">GPL-2.0-or-later</span>
+                            <span className="cp-version-badge">v1.2.0</span>
+                            <span className="cp-license-badge">GPLv2 or later</span>
                         </div>
 
                         <h1 className="pf-hero-name" style={{ marginBottom: '1rem' }}>
@@ -98,9 +145,9 @@ export default function ContentProtectionPage() {
                         </h1>
 
                         <p className="pf-hero-bio" style={{ maxWidth: 600, marginBottom: '2.5rem' }}>
-                            A lightweight, zero-dependency WordPress plugin that deters casual content
-                            theft by disabling right-click, keyboard shortcuts, text selection, image
-                            drag, and clipboard copy — with no impact on SEO or page performance.
+                            Advanced multi-layered content protection with DevTools detection,
+                            screenshot prevention, encrypted content delivery, download-proof
+                            watermarking, and cross-platform security — all zero-dependency.
                         </p>
 
                         <div className="pf-hero-actions">
@@ -127,7 +174,7 @@ export default function ContentProtectionPage() {
                         {/* Stats row */}
                         <div className="pf-hero-stats">
                             <div className="pf-stat">
-                                <span className="pf-stat-num">5<span>+</span></span>
+                                <span className="pf-stat-num">12<span>+</span></span>
                                 <span className="pf-stat-lbl">Protections</span>
                             </div>
                             <div className="pf-stat-divider" />
@@ -153,7 +200,7 @@ export default function ContentProtectionPage() {
                         Features
                     </div>
                     <h2 className="section-title" style={{ marginBottom: '3rem' }}>
-                        What Gets Protected
+                        Multi-Layered Security
                     </h2>
                     <div className="cp-features-grid">
                         {features.map((f) => (
@@ -182,9 +229,9 @@ export default function ContentProtectionPage() {
 
                     <div className="cp-steps">
                         {[
-                            { n: '01', title: 'Install &amp; Activate', desc: 'Upload the plugin zip to your WordPress installation and click Activate. No configuration required.' },
-                            { n: '02', title: 'Auto-Enqueue', desc: 'The plugin automatically enqueues a single tiny JavaScript file on every frontend page of your site.' },
-                            { n: '03', title: 'Protection Active', desc: 'Right-click, keyboard shortcuts, text selection, image drag, and copy are all disabled instantly — zero setup.' },
+                            { n: '01', title: 'Install &amp; Activate', desc: 'Upload the plugin files to your WordPress installation or install directly via the plugins screen and click Activate.' },
+                            { n: '02', title: 'Configure Settings', desc: 'Navigate to Settings → Accelvia Protection to toggle protection features, configure DevTools detection, encrypted content, and watermark settings.' },
+                            { n: '03', title: 'Protection Active', desc: 'Right-click, shortcuts, text selection, screenshots, DevTools, and source viewing are all blocked. Watermarks are canvas-baked onto images automatically.' },
                         ].map((step) => (
                             <div className="cp-step" key={step.n}>
                                 <div className="cp-step-num">{step.n}</div>
@@ -228,16 +275,17 @@ export default function ContentProtectionPage() {
                             <pre className="cp-code-pre"><code>{`/**
  * Plugin Name: Accelvia – Content Protection
  * Plugin URI:  https://accelviateams.com/content-protection
- * Description: Lightweight frontend content protection:
- *              zero-dependency deterrent to disable right-click,
- *              keyboard shortcuts, text selection, image drag,
- *              and copy.
- * Version:     1.0.0
+ * Description: Advanced multi-layered content protection with
+ *              DevTools detection, screenshot prevention,
+ *              encrypted content delivery, download-proof
+ *              watermarking, and cross-platform security.
+ * Version:     1.2.0
  * Requires at least: 6.0
+ * Tested up to: 6.9
  * Requires PHP: 7.4
  * Author:      Md Musfiqur Rahman
  * Author URI:  https://accelviateams.com/musfiqurrahman
- * License:     GPL-2.0-or-later
+ * License:     GPLv2 or later
  * Text Domain: accelvia-content-protection
  */`}</code></pre>
                         </div>
@@ -312,7 +360,7 @@ export default function ContentProtectionPage() {
                                 className="pf-contact-link-item"
                             >
                                 <i className="fa-solid fa-scale-balanced" />
-                                GPL-2.0 License
+                                GPLv2 License
                             </a>
                             <a
                                 href="https://github.com/MusfiqurRahman12"
