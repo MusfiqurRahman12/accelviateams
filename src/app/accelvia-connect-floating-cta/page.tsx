@@ -185,12 +185,16 @@ export default function AccelviaConnectFloatingCTAPage() {
             {/* ── VIDEO SHOWCASE ────────────────────────── */}
             <section className="section" style={{ paddingTop: 0 }}>
                 <div className="container">
+                    <div className="section-label" style={{ marginBottom: '2rem' }}>
+                        <span className="label-line" />
+                        Promo Video
+                    </div>
                     <div className="cp-video-container">
                         <iframe
                             width="100%"
                             height="100%"
                             src="https://www.youtube.com/embed/alAcXX6xINA"
-                            title="Accelvia Connect Video Demo"
+                            title="Accelvia Connect Promo Video"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowFullScreen
