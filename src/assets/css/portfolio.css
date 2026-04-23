@@ -1143,3 +1143,15 @@
         font-size: 2rem;
     }
 }
+
+/* Video Showcase */
+.cp-video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--dark-3);
+    border-radius: 24px;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 960px;
+}

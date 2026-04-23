@@ -182,6 +182,28 @@ export default function AccelviaConnectFloatingCTAPage() {
                 </div>
             </section>
 
+            {/* ── VIDEO SHOWCASE ────────────────────────── */}
+            <section className="section" style={{ paddingTop: 0 }}>
+                <div className="container">
+                    <div className="cp-video-container">
+                        <iframe
+                            width="100%"
+                            height="100%"
+                            src="https://www.youtube.com/embed/alAcXX6xINA"
+                            title="Accelvia Connect Video Demo"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                            style={{
+                                borderRadius: '24px',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
+                            }}
+                        ></iframe>
+                    </div>
+                </div>
+            </section>
+
             {/* ── FEATURES ─────────────────────────────── */}
             <section className="pf-about section">
                 <div className="container">
