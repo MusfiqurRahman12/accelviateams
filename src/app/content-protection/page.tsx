@@ -169,6 +169,18 @@ export default function ContentProtectionPage() {
                                 <i className="fa-brands fa-github" />
                                 View on GitHub
                             </a>
+                            <a 
+                                href="https://www.producthunt.com/products/accelvia-content-protection?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-accelvia-content-protection" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                            >
+                                <img 
+                                    alt="Accelvia Content Protection - A lightweight, zero-dependency WordPress plugin that protect | Product Hunt" 
+                                    width="250" 
+                                    height="54" 
+                                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1134625&theme=light&t=1777409286265" 
+                                />
+                            </a>
                         </div>
 
                         {/* Stats row */}

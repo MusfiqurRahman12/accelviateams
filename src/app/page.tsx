@@ -82,7 +82,20 @@ export default function Home() {
     if (sub) tl.fromTo(sub, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5');
     if (actions) tl.fromTo(actions, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4');
     if (stats) tl.fromTo(stats, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4');
-    if (visual) tl.fromTo(visual, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' }, '-=0.8');
+    const phBadge = document.getElementById('phBadge');
+    if (phBadge) tl.fromTo(phBadge, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }, '-=0.4');
+
+    if (visual) {
+      tl.fromTo(visual, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' }, '-=0.8');
+      const pluginCards = visual.querySelectorAll('.plugin-card-wrapper');
+      if (pluginCards.length) {
+        tl.fromTo(pluginCards, 
+          { opacity: 0, x: 30 }, 
+          { opacity: 1, x: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out' }, 
+          '-=0.6'
+        );
+      }
+    }
 
     // Service cards stagger
     const cards = document.querySelectorAll('.service-card');
@@ -156,44 +169,51 @@ export default function Home() {
                   <span className="stat-lbl">Years Building</span>
                 </div>
               </div>
+
+              <div id="phBadge" style={{ marginTop: '2.5rem' }}>
+                <a href="https://www.producthunt.com/products/accelvia-content-protection?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-accelvia-content-protection" target="_blank" rel="noopener noreferrer">
+                  <img alt="Accelvia Content Protection - A lightweight, zero-dependency WordPress plugin that protect | Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1134625&theme=light&t=1777409286265" />
+                </a>
+              </div>
             </div>
 
             <div className="hero-visual" id="heroVisual">
-              <div className="service-cards">
-                <div className="svc-card svc-card-1">
-                  <div className="svc-icon"><i className="fa-solid fa-store"></i></div>
-                  <div>
-                    <p className="svc-title">CMS & Ecommerce</p>
-                    <p className="svc-sub">WordPress · Shopify · Custom</p>
-                  </div>
-                  <div className="svc-bar">
-                    <div className="svc-bar-fill" style={{ width: '85%' }}></div>
-                  </div>
+              <div style={{ marginBottom: '1.25rem', display: 'inline-flex', alignItems: 'center', gap: '0.6rem', padding: '0.4rem 1rem', background: 'rgba(23, 27, 24, 0.6)', border: '1px solid var(--border)', borderRadius: 'var(--radius-full)', backdropFilter: 'blur(10px)' }}>
+                <i className="fa-brands fa-wordpress" style={{ color: '#21759b', fontSize: '1.1rem' }}></i>
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--light)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Our WordPress.org Plugins</span>
+              </div>
+              <div className="plugin-stack">
+                <div className="plugin-card-wrapper">
+                  <Link href="/accelvia-connect-floating-cta" className="plugin-card plugin-card-1">
+                    <div className="plugin-icon"><i className="fa-brands fa-whatsapp"></i></div>
+                    <div className="plugin-content">
+                      <p className="plugin-title">Accelvia Connect</p>
+                      <p className="plugin-sub">Floating CTA · 6+ Channels</p>
+                    </div>
+                  </Link>
                 </div>
-                <div className="svc-card svc-card-2">
-                  <div className="svc-icon"><i className="fa-solid fa-mobile-screen"></i></div>
-                  <div>
-                    <p className="svc-title">Mobile Apps</p>
-                    <p className="svc-sub">iOS · Android · Flutter</p>
-                  </div>
-                  <div className="svc-bar">
-                    <div className="svc-bar-fill" style={{ width: '70%' }}></div>
-                  </div>
+                <div className="plugin-card-wrapper">
+                  <Link href="/accelvia-uptime-monitor" className="plugin-card plugin-card-2">
+                    <div className="plugin-icon"><i className="fa-solid fa-tower-broadcast"></i></div>
+                    <div className="plugin-content">
+                      <p className="plugin-title">Uptime Monitor</p>
+                      <p className="plugin-sub">Deadman's Switch · Alerts</p>
+                    </div>
+                  </Link>
                 </div>
-                <div className="svc-card svc-card-3">
-                  <div className="svc-icon"><i className="fa-solid fa-puzzle-piece"></i></div>
-                  <div>
-                    <p className="svc-title">WordPress Plugins</p>
-                    <p className="svc-sub">Custom · ACF · WooCommerce</p>
-                  </div>
-                  <div className="svc-bar">
-                    <div className="svc-bar-fill" style={{ width: '92%' }}></div>
-                  </div>
+                <div className="plugin-card-wrapper">
+                  <Link href="/content-protection" className="plugin-card plugin-card-3">
+                    <div className="plugin-icon"><i className="fa-solid fa-shield-halved"></i></div>
+                    <div className="plugin-content">
+                      <p className="plugin-title">Content Protection</p>
+                      <p className="plugin-sub">Anti-Theft · Watermarking</p>
+                    </div>
+                  </Link>
                 </div>
               </div>
               <div className="hero-floating-badge">
-                <i className="fa-solid fa-circle-check" style={{ color: '#2DBD5A' }}></i>
-                Project delivered on time
+                <i className="fa-solid fa-shield-check" style={{ color: '#2DBD5A' }}></i>
+                Trusted by WordPress.org
               </div>
             </div>
           </div>
