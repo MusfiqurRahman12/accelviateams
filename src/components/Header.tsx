@@ -43,7 +43,7 @@ export default function Header() {
             <header className={`site-header${scrolled ? ' scrolled' : ''}`} id="siteHeader">
                 <div className="container">
                     <nav className="nav-inner">
-                        <Link href="/#hero" className="site-logo">
+                        <Link href="/" className="site-logo">
                             <div className="logo-icon">
                                 <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path
