@@ -54,7 +54,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className="footer-bottom">
-                    <p>&copy; 2025 AccelviaTeams. All rights reserved.</p>
+                    <p>&copy; 2026 AccelviaTeams. All rights reserved.</p>
                     <p>accelviateams.com</p>
                 </div>
             </div>
