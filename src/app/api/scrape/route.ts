@@ -67,7 +67,7 @@ export async function GET() {
                         readTime: '3 min', // estimated
                         title: item.title || 'Untitled',
                         excerpt: cleanExcerpt,
-                        link: `/news/${newId}`, // internal dynamic route
+                        link: item.link, // direct link to source
                         sourceLink: item.link, // direct link to source
                         fullContent: fullContent,
                         author: item.creator || item.author || 'Editorial Team',
