@@ -10,8 +10,13 @@ export default function News() {
     const [activeCat, setActiveCat] = useState('All');
     const [activePage, setActivePage] = useState(1);
 
-    const featuredPost = newsData.find(post => post.isFeatured);
-    const gridPosts = newsData.filter(post => !post.isFeatured);
+    const ITEMS_PER_PAGE = 10;
+    const allGridPosts = newsData.filter(post => !post.isFeatured);
+    const totalPages = Math.ceil(allGridPosts.length / ITEMS_PER_PAGE) || 1;
+    const startIndex = (activePage - 1) * ITEMS_PER_PAGE;
+    
+    const featuredPost = activePage === 1 ? newsData.find(post => post.isFeatured) : null;
+    const gridPosts = allGridPosts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
     const recentPosts = newsData.slice(0, 5);
 
     useEffect(() => {
@@ -110,14 +115,33 @@ export default function News() {
                             </div>
 
                             {/* Pagination */}
-                            <div className="news-pagination anim">
-                                <button className={`pagination-btn ${activePage === 1 ? 'active' : ''}`} onClick={() => setActivePage(1)}>1</button>
-                                <button className={`pagination-btn ${activePage === 2 ? 'active' : ''}`} onClick={() => setActivePage(2)}>2</button>
-                                <button className={`pagination-btn ${activePage === 3 ? 'active' : ''}`} onClick={() => setActivePage(3)}>3</button>
-                                <span className="pagination-dots">…</span>
-                                <button className={`pagination-btn ${activePage === 8 ? 'active' : ''}`} onClick={() => setActivePage(8)}>8</button>
-                                <button className="pagination-next">Next <i className="fa-solid fa-arrow-right"></i></button>
-                            </div>
+                            {totalPages > 1 && (
+                                <div className="news-pagination anim">
+                                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                                        <button 
+                                            key={page} 
+                                            className={`pagination-btn ${activePage === page ? 'active' : ''}`} 
+                                            onClick={() => {
+                                                setActivePage(page);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
+                                        >
+                                            {page}
+                                        </button>
+                                    ))}
+                                    {activePage < totalPages && (
+                                        <button 
+                                            className="pagination-next"
+                                            onClick={() => {
+                                                setActivePage(activePage + 1);
+                                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                                            }}
+                                        >
+                                            Next <i className="fa-solid fa-arrow-right"></i>
+                                        </button>
+                                    )}
+                                </div>
+                            )}
 
                         </main>
 
