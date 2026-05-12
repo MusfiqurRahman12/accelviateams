@@ -3,11 +3,16 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import newsData from '@/data/news.json';
 
 export default function News() {
     const [subscribed, setSubscribed] = useState(false);
     const [activeCat, setActiveCat] = useState('All');
     const [activePage, setActivePage] = useState(1);
+
+    const featuredPost = newsData.find(post => post.isFeatured);
+    const gridPosts = newsData.filter(post => !post.isFeatured);
+    const recentPosts = newsData.slice(0, 5);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -67,114 +72,41 @@ export default function News() {
                         <main>
 
                             {/* Featured Article */}
-                            <article className="news-featured anim">
-                                <div className="news-featured-img">
-                                    <span className="news-cat">Company</span>
-                                </div>
-                                <div className="news-featured-body">
-                                    <div className="news-meta">
-                                        <span className="news-date"><i className="fa-regular fa-calendar"></i> March 5, 2026</span>
-                                        <span className="news-read"><i className="fa-regular fa-clock"></i> 4 min read</span>
+                            {featuredPost && (
+                                <article className="news-featured anim">
+                                    <div className={`news-featured-img ${featuredPost.imageClass || ''}`}>
+                                        <span className="news-cat">{featuredPost.category}</span>
                                     </div>
-                                    <h2 className="news-featured-title">AccelviaTeams Launches New Mobile App Development Service for Startups</h2>
-                                    <p className="news-excerpt">We're excited to announce our expanded mobile development offering — purpose-built for early-stage startups who need fast, production-ready iOS and Android apps built with Flutter and React Native.</p>
-                                    <Link href="/news/article" className="btn btn-outline news-read-btn">Read Article <i className="fa-solid fa-arrow-right"></i></Link>
-                                </div>
-                            </article>
+                                    <div className="news-featured-body">
+                                        <div className="news-meta">
+                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> {featuredPost.date}</span>
+                                            {featuredPost.readTime && <span className="news-read"><i className="fa-regular fa-clock"></i> {featuredPost.readTime}</span>}
+                                        </div>
+                                        <h2 className="news-featured-title">{featuredPost.title}</h2>
+                                        <p className="news-excerpt">{featuredPost.excerpt}</p>
+                                        <Link href={featuredPost.link} className="btn btn-outline news-read-btn">Read Article <i className="fa-solid fa-arrow-right"></i></Link>
+                                    </div>
+                                </article>
+                            )}
 
                             {/* News Grid */}
                             <div className="news-grid">
-
-                                <article className="news-card anim">
-                                    <div className="news-card-img news-card-img--1">
-                                        <span className="news-cat">Technology</span>
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="news-meta">
-                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> Feb 22, 2026</span>
-                                            <span className="news-read"><i className="fa-regular fa-clock"></i> 3 min</span>
+                                {gridPosts.map((post) => (
+                                    <article key={post.id} className="news-card anim">
+                                        <div className={`news-card-img ${post.imageClass || ''}`}>
+                                            <span className="news-cat">{post.category}</span>
                                         </div>
-                                        <h3 className="news-card-title">Why We're Betting Big on Next.js 15 for Client Projects</h3>
-                                        <p className="news-card-excerpt">Server components, partial prerendering, and the App Router have changed how we architect modern web apps. Here's our take.</p>
-                                        <Link href="/news/article" className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                    </div>
-                                </article>
-
-                                <article className="news-card anim">
-                                    <div className="news-card-img news-card-img--2">
-                                        <span className="news-cat">Insights</span>
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="news-meta">
-                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> Feb 15, 2026</span>
-                                            <span className="news-read"><i className="fa-regular fa-clock"></i> 5 min</span>
+                                        <div className="news-card-body">
+                                            <div className="news-meta">
+                                                <span className="news-date"><i className="fa-regular fa-calendar"></i> {post.date}</span>
+                                                {post.readTime && <span className="news-read"><i className="fa-regular fa-clock"></i> {post.readTime}</span>}
+                                            </div>
+                                            <h3 className="news-card-title">{post.title}</h3>
+                                            <p className="news-card-excerpt">{post.excerpt}</p>
+                                            <Link href={post.link} className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
                                         </div>
-                                        <h3 className="news-card-title">Headless CMS vs Traditional CMS: What's Right for Your Business?</h3>
-                                        <p className="news-card-excerpt">We break down the key differences, trade-offs, and which approach we recommend depending on your content strategy and scale.</p>
-                                        <Link href="/news/article" className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                    </div>
-                                </article>
-
-                                <article className="news-card anim">
-                                    <div className="news-card-img news-card-img--3">
-                                        <span className="news-cat">Product</span>
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="news-meta">
-                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> Feb 7, 2026</span>
-                                            <span className="news-read"><i className="fa-regular fa-clock"></i> 2 min</span>
-                                        </div>
-                                        <h3 className="news-card-title">New WordPress Plugin Released: AccelviaTeams Content Protection v2.0</h3>
-                                        <p className="news-card-excerpt">Version 2.0 brings role-based content gates, improved performance, and full WordPress 6.7 compatibility — now available on WordPress.org.</p>
-                                        <Link href="/news/article" className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                    </div>
-                                </article>
-
-                                <article className="news-card anim">
-                                    <div className="news-card-img news-card-img--4">
-                                        <span className="news-cat">Team</span>
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="news-meta">
-                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> Jan 28, 2026</span>
-                                            <span className="news-read"><i className="fa-regular fa-clock"></i> 3 min</span>
-                                        </div>
-                                        <h3 className="news-card-title">AccelviaTeams Grows to 12 Engineers — Meet Our Newest Members</h3>
-                                        <p className="news-card-excerpt">We've welcomed four new engineers to the team across frontend, backend, and mobile — here's what they'll be working on.</p>
-                                        <Link href="/news/article" className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                    </div>
-                                </article>
-
-                                <article className="news-card anim">
-                                    <div className="news-card-img news-card-img--5">
-                                        <span className="news-cat">Insights</span>
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="news-meta">
-                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> Jan 18, 2026</span>
-                                            <span className="news-read"><i className="fa-regular fa-clock"></i> 6 min</span>
-                                        </div>
-                                        <h3 className="news-card-title">API-First Development: How We Build Integrations That Scale</h3>
-                                        <p className="news-card-excerpt">From RESTful design to GraphQL federation — a deep dive into our API integration methodology and lessons learned from 50+ client projects.</p>
-                                        <Link href="/news/article" className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                    </div>
-                                </article>
-
-                                <article className="news-card anim">
-                                    <div className="news-card-img news-card-img--6">
-                                        <span className="news-cat">Company</span>
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="news-meta">
-                                            <span className="news-date"><i className="fa-regular fa-calendar"></i> Jan 5, 2026</span>
-                                            <span className="news-read"><i className="fa-regular fa-clock"></i> 2 min</span>
-                                        </div>
-                                        <h3 className="news-card-title">Year in Review 2025: 50+ Projects, 30+ Clients, and What's Ahead</h3>
-                                        <p className="news-card-excerpt">2025 was a landmark year for AccelviaTeams. We look back on our biggest milestones and share where we're headed in 2026.</p>
-                                        <Link href="/news/article" className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></Link>
-                                    </div>
-                                </article>
-
+                                    </article>
+                                ))}
                             </div>
 
                             {/* Pagination */}
@@ -204,56 +136,18 @@ export default function News() {
                             <div className="sidebar-widget anim">
                                 <h3 className="sidebar-title"><span className="label-line"></span>Recent News</h3>
                                 <ul className="recent-news-list">
-                                    <li className="recent-news-item">
-                                        <Link href="/news" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Company</span>
-                                                <span className="recent-news-headline">AccelviaTeams Launches Mobile App Service for Startups</span>
-                                                <span className="recent-news-date">Mar 5, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Technology</span>
-                                                <span className="recent-news-headline">Why We're Betting Big on Next.js 15</span>
-                                                <span className="recent-news-date">Feb 22, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Insights</span>
-                                                <span className="recent-news-headline">Headless CMS vs Traditional CMS Explained</span>
-                                                <span className="recent-news-date">Feb 15, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Product</span>
-                                                <span className="recent-news-headline">Content Protection Plugin v2.0 Released</span>
-                                                <span className="recent-news-date">Feb 7, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Team</span>
-                                                <span className="recent-news-headline">Meet Our 4 Newest Engineers</span>
-                                                <span className="recent-news-date">Jan 28, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
+                                    {recentPosts.map((post) => (
+                                        <li key={`recent-${post.id}`} className="recent-news-item">
+                                            <Link href={post.link} className="recent-news-link">
+                                                <div className="recent-news-dot"></div>
+                                                <div className="recent-news-info">
+                                                    <span className="recent-news-cat">{post.category}</span>
+                                                    <span className="recent-news-headline">{post.title}</span>
+                                                    <span className="recent-news-date">{post.date}</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
 

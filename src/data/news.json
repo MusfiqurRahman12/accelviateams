@@ -1,0 +1,79 @@
+[
+  {
+    "id": "featured-1",
+    "category": "Company",
+    "date": "March 5, 2026",
+    "readTime": "4 min read",
+    "title": "AccelviaTeams Launches New Mobile App Development Service for Startups",
+    "excerpt": "We're excited to announce our expanded mobile development offering — purpose-built for early-stage startups who need fast, production-ready iOS and Android apps built with Flutter and React Native.",
+    "link": "/news/article",
+    "imageClass": "news-featured-img",
+    "isFeatured": true
+  },
+  {
+    "id": "post-1",
+    "category": "Technology",
+    "date": "Feb 22, 2026",
+    "readTime": "3 min",
+    "title": "Why We're Betting Big on Next.js 15 for Client Projects",
+    "excerpt": "Server components, partial prerendering, and the App Router have changed how we architect modern web apps. Here's our take.",
+    "link": "/news/article",
+    "imageClass": "news-card-img--1",
+    "isFeatured": false
+  },
+  {
+    "id": "post-2",
+    "category": "Insights",
+    "date": "Feb 15, 2026",
+    "readTime": "5 min",
+    "title": "Headless CMS vs Traditional CMS: What's Right for Your Business?",
+    "excerpt": "We break down the key differences, trade-offs, and which approach we recommend depending on your content strategy and scale.",
+    "link": "/news/article",
+    "imageClass": "news-card-img--2",
+    "isFeatured": false
+  },
+  {
+    "id": "post-3",
+    "category": "Product",
+    "date": "Feb 7, 2026",
+    "readTime": "2 min",
+    "title": "New WordPress Plugin Released: AccelviaTeams Content Protection v2.0",
+    "excerpt": "Version 2.0 brings role-based content gates, improved performance, and full WordPress 6.7 compatibility — now available on WordPress.org.",
+    "link": "/news/article",
+    "imageClass": "news-card-img--3",
+    "isFeatured": false
+  },
+  {
+    "id": "post-4",
+    "category": "Team",
+    "date": "Jan 28, 2026",
+    "readTime": "3 min",
+    "title": "AccelviaTeams Grows to 12 Engineers — Meet Our Newest Members",
+    "excerpt": "We've welcomed four new engineers to the team across frontend, backend, and mobile — here's what they'll be working on.",
+    "link": "/news/article",
+    "imageClass": "news-card-img--4",
+    "isFeatured": false
+  },
+  {
+    "id": "post-5",
+    "category": "Insights",
+    "date": "Jan 18, 2026",
+    "readTime": "6 min",
+    "title": "API-First Development: How We Build Integrations That Scale",
+    "excerpt": "From RESTful design to GraphQL federation — a deep dive into our API integration methodology and lessons learned from 50+ client projects.",
+    "link": "/news/article",
+    "imageClass": "news-card-img--5",
+    "isFeatured": false
+  },
+  {
+    "id": "post-6",
+    "category": "Company",
+    "date": "Jan 5, 2026",
+    "readTime": "2 min",
+    "title": "Year in Review 2025: 50+ Projects, 30+ Clients, and What's Ahead",
+    "excerpt": "2025 was a landmark year for AccelviaTeams. We look back on our biggest milestones and share where we're headed in 2026.",
+    "link": "/news/article",
+    "imageClass": "news-card-img--6",
+    "isFeatured": false
+  }
+]
