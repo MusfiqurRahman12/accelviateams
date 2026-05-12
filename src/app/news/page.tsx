@@ -20,24 +20,35 @@ export default function News() {
     const recentPosts = newsData.slice(0, 5);
 
     useEffect(() => {
+        // Cleanup all triggers only when component unmounts
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill());
+        };
+    }, []);
+
+    useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap.utils.toArray('.anim').forEach((el: any) => {
+        // Only animate elements that haven't been animated yet
+        const uninitializedElements = gsap.utils.toArray('.anim:not(.gsap-initialized)');
+        
+        uninitializedElements.forEach((el: any) => {
+            el.classList.add('gsap-initialized');
             gsap.fromTo(el,
                 { opacity: 0, y: 32 },
                 {
                     opacity: 1, y: 0,
                     duration: 0.75,
                     ease: 'power3.out',
-                    scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+                    scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
                 }
             );
         });
 
-        return () => {
-            ScrollTrigger.getAll().forEach(t => t.kill());
-        };
-    }, []);
+        // Tell ScrollTrigger to recalculate positions since DOM just changed
+        setTimeout(() => ScrollTrigger.refresh(), 100);
+
+    }, [activePage]);
 
     const handleNewsletter = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
