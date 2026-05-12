@@ -29,7 +29,9 @@ export async function POST(request: Request) {
 
         if (action === 'approve') {
             // Assign a stable news ID
-            targetDraft.id = 'post-' + Date.now();
+            const newId = 'post-' + Date.now();
+            targetDraft.id = newId;
+            targetDraft.link = `/news/${newId}`;
             
             // Insert after the featured post, or at the start if no featured
             const firstNonFeaturedIndex = news.findIndex((n: any) => !n.isFeatured);

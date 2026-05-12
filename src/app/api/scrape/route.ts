@@ -42,8 +42,8 @@ export async function GET() {
             
             for (const item of topItems) {
                 // Check if already exists in drafts or news.json to avoid duplicates
-                const isDraft = existingDrafts.some(d => d.link === item.link);
-                const isPublished = existingNews.some(n => n.link === item.link);
+                const isDraft = existingDrafts.some(d => (d.sourceLink || d.link) === item.link);
+                const isPublished = existingNews.some(n => (n.sourceLink || n.link) === item.link);
 
                 if (!isDraft && !isPublished) {
                     
@@ -56,15 +56,21 @@ export async function GET() {
                     const formattedDate = dateObj.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
                     const randomImgId = Math.floor(Math.random() * 6) + 1;
+                    const newId = 'draft-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
+                    
+                    let fullContent = item.content || item.contentSnippet || cleanExcerpt;
 
                     existingDrafts.push({
-                        id: 'draft-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9),
+                        id: newId,
                         category: feed.category,
                         date: formattedDate,
                         readTime: '3 min', // estimated
                         title: item.title || 'Untitled',
                         excerpt: cleanExcerpt,
-                        link: item.link, // direct link to source
+                        link: `/news/${newId}`, // internal dynamic route
+                        sourceLink: item.link, // direct link to source
+                        fullContent: fullContent,
+                        author: item.creator || item.author || 'Editorial Team',
                         imageClass: `news-card-img--${randomImgId}`,
                         isFeatured: false
                     });
