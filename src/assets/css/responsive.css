@@ -14,18 +14,39 @@
         display: block;
     }
 
-    /* Remove stagger offsets for mobile */
+    /* ── Plugin Stack → Horizontal Swipeable Carousel ── */
     .plugin-stack {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.85rem;
         margin-left: 0;
+        padding-bottom: 0.5rem;
+        /* Hide scrollbar visually */
+        scrollbar-width: none;          /* Firefox */
+        -ms-overflow-style: none;       /* IE/Edge */
     }
 
+    .plugin-stack::-webkit-scrollbar {
+        display: none;                  /* Chrome/Safari */
+    }
+
+    .plugin-card-wrapper {
+        flex: 0 0 78%;
+        scroll-snap-align: start;
+    }
+
+    /* Remove stagger offsets */
     .plugin-card-1,
     .plugin-card-2,
     .plugin-card-3 {
         margin-left: 0 !important;
     }
 
-    /* Disable desktop hover blur/scale effect on touch devices */
+    /* Disable desktop hover blur/scale effect on touch */
     .plugin-stack:hover .plugin-card {
         opacity: 1;
         filter: none;
@@ -33,7 +54,11 @@
     }
 
     .plugin-stack .plugin-card-wrapper:hover .plugin-card {
+        opacity: 1;
+        filter: none;
         transform: none;
+        border-color: var(--border);
+        box-shadow: var(--shadow-card);
     }
 
     /* Floating badge repositioned */
@@ -144,7 +169,11 @@
         justify-content: center;
     }
 
-    /* Hero visual — compact plugin cards for mobile */
+    /* Hero carousel — wider cards on mobile */
+    .plugin-card-wrapper {
+        flex: 0 0 85%;
+    }
+
     .plugin-card {
         padding: 1rem 1.25rem;
         gap: 1rem;
@@ -179,6 +208,11 @@
 @media (max-width: 480px) {
     .hero {
         padding-top: 5.5rem;
+    }
+
+    /* Cards take almost full width on small phones */
+    .plugin-card-wrapper {
+        flex: 0 0 90%;
     }
 
     .plugin-card {
