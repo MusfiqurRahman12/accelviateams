@@ -4,10 +4,14 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import newsData from '@/data/news.json';
 
 export default function NewsDetailPage() {
     const [copied, setCopied] = useState(false);
     const [tocOpen, setTocOpen] = useState(true);
+
+    const recentPosts = newsData.slice(0, 5);
+    const relatedPosts = newsData.filter(p => !p.isFeatured).slice(0, 3);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
@@ -285,42 +289,20 @@ export default function NewsDetailPage() {
                                 <div className="section-label"><span className="label-line"></span><span>Keep Reading</span></div>
                                 <h2 className="related-title">Related Articles</h2>
                                 <div className="related-grid">
-                                    <Link href="/news/article" className="related-card">
-                                        <div className="related-card-img related-img--1">
-                                            <span className="news-cat">Technology</span>
-                                        </div>
-                                        <div className="related-card-body">
-                                            <div className="news-meta">
-                                                <span className="news-date"><i className="fa-regular fa-calendar"></i> Feb 22, 2026</span>
+                                    {relatedPosts.map((post) => (
+                                        <Link key={`related-${post.id}`} href={post.link} className="related-card">
+                                            <div className={`related-card-img ${post.imageClass || ''}`}>
+                                                <span className="news-cat">{post.category}</span>
                                             </div>
-                                            <h3 className="related-card-title">Why We're Betting Big on Next.js 15 for Client Projects</h3>
-                                            <span className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></span>
-                                        </div>
-                                    </Link>
-                                    <Link href="/news/article" className="related-card">
-                                        <div className="related-card-img related-img--2">
-                                            <span className="news-cat">Insights</span>
-                                        </div>
-                                        <div className="related-card-body">
-                                            <div className="news-meta">
-                                                <span className="news-date"><i className="fa-regular fa-calendar"></i> Feb 15, 2026</span>
+                                            <div className="related-card-body">
+                                                <div className="news-meta">
+                                                    <span className="news-date"><i className="fa-regular fa-calendar"></i> {post.date}</span>
+                                                </div>
+                                                <h3 className="related-card-title">{post.title}</h3>
+                                                <span className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></span>
                                             </div>
-                                            <h3 className="related-card-title">Headless CMS vs Traditional CMS: What's Right for Your Business?</h3>
-                                            <span className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></span>
-                                        </div>
-                                    </Link>
-                                    <Link href="/news/article" className="related-card">
-                                        <div className="related-card-img related-img--3">
-                                            <span className="news-cat">Insights</span>
-                                        </div>
-                                        <div className="related-card-body">
-                                            <div className="news-meta">
-                                                <span className="news-date"><i className="fa-regular fa-calendar"></i> Jan 18, 2026</span>
-                                            </div>
-                                            <h3 className="related-card-title">API-First Development: How We Build Integrations That Scale</h3>
-                                            <span className="news-link">Read More <i className="fa-solid fa-arrow-right"></i></span>
-                                        </div>
-                                    </Link>
+                                        </Link>
+                                    ))}
                                 </div>
                             </div>
 
@@ -360,46 +342,18 @@ export default function NewsDetailPage() {
                             <div className="sidebar-widget anim">
                                 <h3 className="sidebar-title"><span className="label-line"></span>Recent News</h3>
                                 <ul className="recent-news-list">
-                                    <li className="recent-news-item">
-                                        <Link href="/news/article" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Technology</span>
-                                                <span className="recent-news-headline">Why We're Betting Big on Next.js 15</span>
-                                                <span className="recent-news-date">Feb 22, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news/article" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Insights</span>
-                                                <span className="recent-news-headline">Headless CMS vs Traditional CMS Explained</span>
-                                                <span className="recent-news-date">Feb 15, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news/article" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Product</span>
-                                                <span className="recent-news-headline">Content Protection Plugin v2.0 Released</span>
-                                                <span className="recent-news-date">Feb 7, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
-                                    <li className="recent-news-item">
-                                        <Link href="/news/article" className="recent-news-link">
-                                            <div className="recent-news-dot"></div>
-                                            <div className="recent-news-info">
-                                                <span className="recent-news-cat">Team</span>
-                                                <span className="recent-news-headline">Meet Our 4 Newest Engineers</span>
-                                                <span className="recent-news-date">Jan 28, 2026</span>
-                                            </div>
-                                        </Link>
-                                    </li>
+                                    {recentPosts.map((post) => (
+                                        <li key={`recent-${post.id}`} className="recent-news-item">
+                                            <Link href={post.link} className="recent-news-link">
+                                                <div className="recent-news-dot"></div>
+                                                <div className="recent-news-info">
+                                                    <span className="recent-news-cat">{post.category}</span>
+                                                    <span className="recent-news-headline">{post.title}</span>
+                                                    <span className="recent-news-date">{post.date}</span>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
 
