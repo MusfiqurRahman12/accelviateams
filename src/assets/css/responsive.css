@@ -12,41 +12,32 @@
     /* Show hero visual on mobile with compact layout */
     .hero-visual {
         display: block;
+        max-width: 100%;
+        overflow: hidden;
     }
 
-    /* ── Plugin Stack → Horizontal Swipeable Carousel ── */
+    /* Remove stagger offsets for mobile */
     .plugin-stack {
-        flex-direction: row;
-        overflow-x: auto;
-        overflow-y: hidden;
-        scroll-snap-type: x mandatory;
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-        gap: 0.85rem;
         margin-left: 0;
-        padding-bottom: 0.5rem;
-        /* Hide scrollbar visually */
-        scrollbar-width: none;          /* Firefox */
-        -ms-overflow-style: none;       /* IE/Edge */
-    }
-
-    .plugin-stack::-webkit-scrollbar {
-        display: none;                  /* Chrome/Safari */
+        max-width: 100%;
     }
 
     .plugin-card-wrapper {
-        flex: 0 0 78%;
-        scroll-snap-align: start;
+        max-width: 100%;
     }
 
-    /* Remove stagger offsets */
+    .plugin-card {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
     .plugin-card-1,
     .plugin-card-2,
     .plugin-card-3 {
         margin-left: 0 !important;
     }
 
-    /* Disable desktop hover blur/scale effect on touch */
+    /* Disable desktop hover blur/scale effect on touch devices */
     .plugin-stack:hover .plugin-card {
         opacity: 1;
         filter: none;
@@ -54,11 +45,7 @@
     }
 
     .plugin-stack .plugin-card-wrapper:hover .plugin-card {
-        opacity: 1;
-        filter: none;
         transform: none;
-        border-color: var(--border);
-        box-shadow: var(--shadow-card);
     }
 
     /* Floating badge repositioned */
@@ -163,26 +150,32 @@
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
+        max-width: 100%;
     }
 
     .hero-actions .btn {
         justify-content: center;
+        max-width: 100%;
     }
 
-    /* Hero carousel — wider cards on mobile */
-    .plugin-card-wrapper {
-        flex: 0 0 85%;
-    }
-
+    /* Hero visual — compact plugin cards for mobile */
     .plugin-card {
         padding: 1rem 1.25rem;
         gap: 1rem;
+        width: 100%;
+        max-width: 100%;
     }
 
     .plugin-icon {
         width: 42px;
         height: 42px;
         font-size: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    .plugin-content {
+        min-width: 0;
+        overflow: hidden;
     }
 
     .plugin-title {
@@ -191,10 +184,18 @@
 
     .plugin-sub {
         font-size: 0.72rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .plugin-stack {
         gap: 0.75rem;
+        max-width: 100%;
+    }
+
+    /* Hero subtitle — prevent overflow */
+    .hero-subtitle {
+        max-width: 100%;
     }
 
     /* About page — Our Story & Our Mission stack vertically on mobile */
@@ -208,11 +209,6 @@
 @media (max-width: 480px) {
     .hero {
         padding-top: 5.5rem;
-    }
-
-    /* Cards take almost full width on small phones */
-    .plugin-card-wrapper {
-        flex: 0 0 90%;
     }
 
     .plugin-card {
