@@ -8,6 +8,8 @@ const parser = new Parser();
 // Top tech feeds covering new tech, products, software, and web development
 const FEEDS = [
     { url: 'https://techcrunch.com/feed/', category: 'Technology' },
+    { url: 'https://techcrunch.com/category/artificial-intelligence/feed/', category: 'Technology' }, // AI News
+    { url: 'https://www.artificialintelligence-news.com/feed/', category: 'Insights' }, // Dedicated AI News
     { url: 'https://www.theverge.com/rss/index.xml', category: 'Technology' },
     { url: 'https://venturebeat.com/feed/', category: 'Insights' },
     { url: 'https://www.wired.com/feed/rss', category: 'Technology' },
