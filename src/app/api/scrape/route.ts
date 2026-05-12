@@ -5,11 +5,14 @@ import path from 'path';
 
 const parser = new Parser();
 
-// Top tech feeds
+// Top tech feeds covering new tech, products, software, and web development
 const FEEDS = [
     { url: 'https://techcrunch.com/feed/', category: 'Technology' },
     { url: 'https://www.theverge.com/rss/index.xml', category: 'Technology' },
-    { url: 'https://venturebeat.com/feed/', category: 'Insights' }
+    { url: 'https://venturebeat.com/feed/', category: 'Insights' },
+    { url: 'https://www.wired.com/feed/rss', category: 'Technology' },
+    { url: 'https://dev.to/feed', category: 'Insights' }, // Software & Web Dev
+    { url: 'https://hnrss.org/frontpage', category: 'Technology' } // Hacker News front page
 ];
 
 export async function GET() {
@@ -32,8 +35,8 @@ export async function GET() {
         for (const feed of FEEDS) {
             const parsedFeed = await parser.parseURL(feed.url);
             
-            // Just get top 3 from each to not overwhelm
-            const topItems = parsedFeed.items.slice(0, 3);
+            // Get top 8 from each feed to provide plenty of options
+            const topItems = parsedFeed.items.slice(0, 8);
             
             for (const item of topItems) {
                 // Check if already exists in drafts or news.json to avoid duplicates
