@@ -1,5 +1,16 @@
 [
   {
+    "id": "featured-ai-models",
+    "category": "Technology",
+    "date": "May 14, 2026",
+    "readTime": "6 min read",
+    "title": "2026 AI Models Comparison: How Agentic Coding is Thriving",
+    "excerpt": "A comprehensive comparison of the best trending AI models in 2026 including Gemini 3, GPT-5, and Claude 4, and how agentic coding is revolutionizing software development.",
+    "link": "/news/ai-models-agentic-coding",
+    "imageClass": "news-featured-img",
+    "isFeatured": true
+  },
+  {
     "id": "featured-1",
     "category": "Company",
     "date": "March 5, 2026",
@@ -7,8 +18,8 @@
     "title": "AccelviaTeams Launches New Mobile App Development Service for Startups",
     "excerpt": "We're excited to announce our expanded mobile development offering — purpose-built for early-stage startups who need fast, production-ready iOS and Android apps built with Flutter and React Native.",
     "link": "/news/article",
-    "imageClass": "news-featured-img",
-    "isFeatured": true
+    "imageClass": "news-card-img--1",
+    "isFeatured": false
   },
   {
     "id": "post-1778626038195",
