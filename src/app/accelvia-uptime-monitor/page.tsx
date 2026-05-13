@@ -105,7 +105,8 @@ export default function UptimeMonitorPage() {
 
                         <div className="pf-hero-actions">
                             <a
-                                href="https://wordpress.org/plugins/accelvia-uptime-monitor"
+                                href="/plugins/accelvia-uptime-monitor.zip"
+                                download="accelvia-uptime-monitor.zip"
                                 className="btn btn-primary btn-lg"
                                 id="cp-download-btn"
                             >
@@ -285,7 +286,8 @@ export default function UptimeMonitorPage() {
                         </p>
                         <div className="pf-contact-actions">
                             <a
-                                href="https://wordpress.org/plugins/accelvia-uptime-monitor"
+                                href="/plugins/accelvia-uptime-monitor.zip"
+                                download="accelvia-uptime-monitor.zip"
                                 className="btn btn-primary btn-lg"
                                 id="cp-cta-download-btn"
                             >
@@ -301,6 +303,9 @@ export default function UptimeMonitorPage() {
                                 View Author
                             </Link>
                         </div>
+                        <p className="cp-license-notice" style={{ marginTop: '1.5rem', opacity: 0.7, fontSize: '0.85rem' }}>
+                            By downloading, you agree to the <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank" rel="noopener noreferrer" className="text-green">GPLv2 License</a>.
+                        </p>
                         <div className="pf-contact-links">
                             <a
                                 href="https://www.gnu.org/licenses/gpl-2.0.html"
