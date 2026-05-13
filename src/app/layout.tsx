@@ -8,6 +8,9 @@ import Script from 'next/script';
 export const metadata: Metadata = {
   title: 'AccelviaTeams | IT Services & Digital Solutions',
   description: 'AccelviaTeams is an IT service provider specializing in CMS development, custom web applications, WordPress plugins, theme builders, and mobile app development.',
+  other: {
+    'google-adsense-account': 'ca-pub-6183846679684682'
+  }
 };
 
 export default function RootLayout({
