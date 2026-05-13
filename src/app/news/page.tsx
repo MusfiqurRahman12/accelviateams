@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Script from 'next/script';
 import newsData from '@/data/news.json';
 
 export default function News() {
@@ -66,6 +67,12 @@ export default function News() {
 
     return (
         <main>
+            <Script
+                async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6183846679684682"
+                crossOrigin="anonymous"
+                strategy="afterInteractive"
+            />
             {/* PAGE HERO */}
             <section className="page-hero">
                 <div className="container">
