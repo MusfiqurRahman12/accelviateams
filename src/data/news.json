@@ -1,5 +1,60 @@
 [
   {
+    "id": "article-custom-cms",
+    "category": "Technology",
+    "date": "May 14, 2026",
+    "readTime": "5 min read",
+    "title": "Custom CMS vs. Ready-Made: Which is Right for Your Business?",
+    "excerpt": "A deep dive into why enterprise businesses are moving away from restrictive off-the-shelf platforms and investing in custom CMS development for maximum scalability.",
+    "link": "/news/custom-cms-vs-ready-made",
+    "imageClass": "news-card-img--1",
+    "isFeatured": false
+  },
+  {
+    "id": "article-roi-web-apps",
+    "category": "Insights",
+    "date": "May 14, 2026",
+    "readTime": "6 min read",
+    "title": "The Hidden ROI of Custom Web Applications in 2026",
+    "excerpt": "Discover how custom web applications streamline internal processes, reduce overhead costs, and create unparalleled user experiences that drive revenue.",
+    "link": "/news/roi-custom-web-applications",
+    "imageClass": "news-card-img--2",
+    "isFeatured": false
+  },
+  {
+    "id": "article-mobile-trends",
+    "category": "Product",
+    "date": "May 14, 2026",
+    "readTime": "4 min read",
+    "title": "Why Mobile App Development is Crucial for Enterprise Growth",
+    "excerpt": "With over 70% of digital traffic coming from mobile, having a responsive website is no longer enough. Here is why your business needs a dedicated mobile app.",
+    "link": "/news/mobile-app-development-trends",
+    "imageClass": "news-card-img--3",
+    "isFeatured": false
+  },
+  {
+    "id": "article-wp-security",
+    "category": "Technology",
+    "date": "May 14, 2026",
+    "readTime": "5 min read",
+    "title": "Securing WordPress: Why Custom Plugins Outperform Off-the-Shelf",
+    "excerpt": "A deep technical analysis of WordPress security vulnerabilities and how bespoke plugin development mitigates risk for enterprise platforms.",
+    "link": "/news/securing-wordpress-custom-plugins",
+    "imageClass": "news-card-img--4",
+    "isFeatured": false
+  },
+  {
+    "id": "article-cloud-migration",
+    "category": "Company",
+    "date": "May 14, 2026",
+    "readTime": "7 min read",
+    "title": "A Fail-Proof Cloud Migration Strategy for Growing Businesses",
+    "excerpt": "Moving from on-premise to the cloud is daunting. We outline the exact step-by-step strategy to ensure zero downtime and maximum data integrity.",
+    "link": "/news/cloud-migration-strategy",
+    "imageClass": "news-card-img--5",
+    "isFeatured": false
+  },
+  {
     "id": "featured-ai-models",
     "category": "Technology",
     "date": "May 14, 2026",
